@@ -1,0 +1,26 @@
+<div style="text-align: center">
+  <h1 class="display-1">{{ title }}</h1>
+  <div class="row d-flex justify-content-center">
+    <div class="col-4">
+      <input class="form-control" type="text" placeholder="Entrez le nom d'un film" id="movie">
+      <button class="btn btn-primary m-4" (click)="onSearch()">{{ buttonText }}</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row g-2">
+      <div *ngFor="let movie of searchData.results" class="col-4 text-light border border-light d-flex align-items-center">
+
+        <div class="p-3">
+          <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" style="max-height: 150px"/>
+        </div>
+
+        <div>
+          <h3>{{ movie.title }}</h3>
+          <p class="m-3">{{ movie.overview }}</p>
+          <p> Popularité : {{ movie.popularity }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
